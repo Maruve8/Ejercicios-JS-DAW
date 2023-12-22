@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Fecha y hora actual</title>
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      var fechaActual = new Date();
+      var diasSemana = ["domingo", "lunes", "martes", "miércoles", "jueves", "viernes", "sábado"];
+      var dia = diasSemana[fechaActual.getDay()];
+      var diaNumero = fechaActual.getDate();
+      var mes = fechaActual.toLocaleString('es-ES', { month: 'long' });
+      var ano = fechaActual.getFullYear();
+      var horas = fechaActual.getHours();
+      var minutos = fechaActual.getMinutes();
+      var segundos = fechaActual.getSeconds();
+
+      var mensaje = "Hoy es " + dia + ", " + diaNumero + " de " + mes + " de " + ano + " y son las " +
+                     (horas < 10 ? '0' : '') + horas + ":" + (minutos < 10 ? '0' : '') + minutos +
+                     ":" + (segundos < 10 ? '0' : '') + segundos + " horas.";
+
+      document.getElementById("mensaje").textContent = mensaje;
+    });
+  </script>
+</head>
+<body>
+	<p id="mensaje"></p>
+</body>
+</html>

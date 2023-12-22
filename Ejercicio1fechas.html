@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Ejercicio 1: Calcular Fechas</title>
+</head>
+<body>
+  <script>
+    function calcularFechas() {
+      var inputFecha = prompt("Introduce una fecha (YYYY-MM-DD):");
+      var fecha = new Date(inputFecha);
+
+      var fecha30 = new Date(fecha);
+      fecha30.setDate(fecha30.getDate() + 30);
+
+      var fecha60 = new Date(fecha);
+      fecha60.setDate(fecha60.getDate() + 60);
+
+      var fecha90 = new Date(fecha);
+      fecha90.setDate(fecha90.getDate() + 90);
+
+      alert(
+        "Fecha inicial: " + fecha.toDateString() + "\n" +
+        "Fecha + 30 días: " + fecha30.toDateString() + "\n" +
+        "Fecha + 60 días: " + fecha60.toDateString() + "\n" +
+        "Fecha + 90 días: " + fecha90.toDateString()
+      );
+    }
+
+    calcularFechas();  // Llama a la función para ejecutar el script
+  </script>
+</body>
+</html>

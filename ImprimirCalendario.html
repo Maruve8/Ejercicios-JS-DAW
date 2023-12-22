@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Imprimir Calendario</title>
+</head>
+<body>
+  <script>
+    function imprimirCalendario() {
+      var inputMes = prompt("Introduce el mes (1-12):");
+      var inputAnio = prompt("Introduce el año:");
+
+      var mes = parseInt(inputMes);
+      var anio = parseInt(inputAnio);
+
+      var primerDia = new Date(anio, mes - 1, 1);
+
+      var calendario = "Calendario:\n";
+
+      while (primerDia.getMonth() === mes - 1) {
+        calendario += primerDia.getDate() + " (" + obtenerDiaSemana(primerDia) + ")\n";
+        primerDia.setDate(primerDia.getDate() + 1);
+      }
+
+      alert(calendario);
+    }
+
+    function obtenerDiaSemana(fecha) {
+      return new Intl.DateTimeFormat("es-ES", { weekday: "long" }).format(fecha);
+    }
+
+    imprimirCalendario(); 
+  </script>
+</body>
+</html>

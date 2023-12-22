@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Saludo según hora</title>
+ <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      var saludo = "";
+      var hora = new Date().getHours();
+
+      if (hora >= 6 && hora < 12) saludo = "Buenos días";
+      else if (hora >= 12 && hora < 20) saludo = "Buenas tardes";
+      else saludo = "Buenas noches";
+
+      document.getElementById("mensaje").textContent = saludo;
+    });
+  </script>
+</head>
+<body>
+	<p id="mensaje"></p>
+</body>
+</html>
