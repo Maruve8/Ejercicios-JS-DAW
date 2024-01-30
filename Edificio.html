@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestión de edificios</title>
+</head>
+<body>
+    <script>
+        // Definición constructor Edificio
+function Edificio(calle, numero, codigoPostal) {
+    this.calle = calle;
+    this.numero = numero;
+    this.codigoPostal = codigoPostal;
+    this.plantas = [];
+    
+    // Método para agregar plantas y puertas al edificio
+    this.agregarPlantasyPuertas = function(numPlantas, puertas) {
+        for (let i = 0; i < numPlantas; i++) {
+            let planta = [];
+            for (let j = 0; j < puertas; j++) {
+                planta.push({ propietario: "" });
+            }
+            this.plantas.push(planta);
+        }
+    };
+    
+    // Método para modificar el número del edificio
+    this.modificarNumero = function(nuevoNumero) {
+        this.numero = nuevoNumero;
+    };
+
+    // Método para modificar la calle del edificio
+    this.modificarCalle = function(nuevaCalle) {
+        this.calle = nuevaCalle;
+    };
+
+    // Método para modificar el código postal del edificio
+    this.modificarCodigoPostal = function(nuevoCP) {
+        this.codigoPostal = nuevoCP;
+    };
+
+    // Método para mostrar la calle del edificio
+    this.mostrarCalle = function() {
+        return this.calle;
+    };
+
+    // Método para mostrar el número del edificio
+    this.mostrarNumero = function() {
+        return this.numero;
+    };
+
+    // Método para mostrar el código postal del edificio
+    this.mostrarCodigoPostal = function() {
+        return this.codigoPostal;
+    };
+
+    // Método para agregar un propietario a una puerta específica
+    this.agregarPropietario = function(nombre, planta, puerta) {
+        if (planta < this.plantas.length && puerta < this.plantas[planta].length) {
+            this.plantas[planta][puerta].propietario = nombre;
+        }
+    };
+
+    // Método para mostrar todos los propietarios de cada puerta del edificio
+    this.mostrarPlantas = function() {
+        for (let i = 0; i < this.plantas.length; i++) {
+            for (let j = 0; j < this.plantas[i].length; j++) {
+                console.log(`Planta ${i + 1}, Puerta ${j + 1}: ${this.plantas[i][j].propietario}`);
+            }
+        }
+    };
+
+    // Mensaje al crear un nuevo edificio
+    console.log(`Nuevo Edificio construido en calle: ${calle}, nº: ${numero}, CP: ${codigoPostal}`);
+}
+
+// Uso
+let nuevoEdificio = new Edificio("Calle Cesur", 88, "12345");
+nuevoEdificio.agregarPlantasyPuertas(3, 4);
+nuevoEdificio.agregarPropietario("Propietario1", 1, 2);
+nuevoEdificio.mostrarPlantas();
+
+    </script>
+</body>
+</html>
